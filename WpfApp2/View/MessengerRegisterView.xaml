@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfApp2.View.MessengerRegisterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2.View"
+        mc:Ignorable="d"
+        Title="MessengerRegisterView" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="209*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10,10,10,10.069">
+            <TextBlock Text="接受信息"/>
+            <TextBlock Text="{Binding ReceiveInfo}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Button Content="打开子窗口" Margin="0,0,173,0" Command="{Binding ShowSenderWindow}"/>
+        </StackPanel>
+    </Grid>
+</Window>

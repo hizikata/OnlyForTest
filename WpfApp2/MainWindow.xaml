@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d" DataContext="{Binding Source={StaticResource Locator},Path=Main}"
+        Title="MainWindow" Height="386.842" Width="592.544">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open"
+                        Executed="CommandBinding_Executed"
+                        CanExecute="CommandBinding_CanExecute"/>
+        <CommandBinding Command="ApplicationCommands.Save"
+                        Executed="CommandBinding_Executed_1"
+                        CanExecute="CommandBinding_CanExecute_1"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="235*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem Command="ApplicationCommands.Open"/>
+                <MenuItem Command="ApplicationCommands.Save"/>
+                <MenuItem Command="ApplicationCommands.Cut"/>
+                <MenuItem Command="ApplicationCommands.Copy"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+            <Separator/>
+            <MenuItem Header="_Exit"/>
+        </Menu>
+        <TextBox HorizontalAlignment="Left" Height="44" FontSize="30" Margin="35,7.158,0,0" TextWrapping="Wrap" Text="{Binding MainModel.Introduction}" VerticalAlignment="Top" Width="304" Grid.Row="1"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="34" Margin="60,1,0,0" VerticalAlignment="Top" Width="154" Click="Button_Click" Grid.Row="3"/>
+        <RichTextBox Name="rBoxTest" Grid.Row="2"  />
+    </Grid>
+</Window>
