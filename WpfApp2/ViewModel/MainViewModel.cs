@@ -56,6 +56,7 @@ namespace WpfApp2.ViewModel
                 List<CommandViewModel> commands = new List<CommandViewModel>()
                 {
                     new CommandViewModel(CommandOne,"测试菜单一","atm.png","for test"),
+                    new CommandViewModel(CommandTwo,"流文档测试","atm.png","流文档各类操作测试")
                 };
                 return new ReadOnlyCollection<CommandViewModel>(commands);
             }
@@ -80,6 +81,20 @@ namespace WpfApp2.ViewModel
                 return new RelayCommand(ExecuteCommand);
             }
         }
+
+        public RelayCommand CommandTwo
+        {
+            get
+            {
+                return new RelayCommand(() => ExecuteCommandTwo());
+            }
+        }
+
+        private void ExecuteCommandTwo()
+        {
+            new FrmFlowDocument().Show();
+        }
+
         public void ExecuteCommand()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -93,20 +108,20 @@ namespace WpfApp2.ViewModel
                     //生成xlsx文件
                     XSSFWorkbook workbook07 = new XSSFWorkbook();
                     workbook07.CreateSheet("测试工作表1");
-                    XSSFSheet sheet1 =(XSSFSheet) workbook07.GetSheet("测试工作表1");
-                    for(int i = 0; i < 10; i++)
+                    XSSFSheet sheet1 = (XSSFSheet)workbook07.GetSheet("测试工作表1");
+                    for (int i = 0; i < 10; i++)
                     {
                         sheet1.CreateRow(i);
                         XSSFRow row = (XSSFRow)sheet1.GetRow(i);
                         XSSFCell[] cell = new XSSFCell[10];
-                        for(int j = 0; j < 10; j++)
+                        for (int j = 0; j < 10; j++)
                         {
                             row.CreateCell(j);
-                            cell[j] =(XSSFCell) row.GetCell(j);
+                            cell[j] = (XSSFCell)row.GetCell(j);
                             cell[j].SetCellValue((i * 10 + j).ToString());
                         }
                     }
-                    
+
                     using (FileStream fileStream07 = new FileStream(fileName, FileMode.Create))
                     {
                         workbook07.Write(fileStream07);
@@ -131,8 +146,8 @@ namespace WpfApp2.ViewModel
                     MessageBox.Show("文件名错误，请检查后重试", "系统提示");
                     return;
                 }
-                
-                
+
+
                 if (File.Exists(fileName))
                 {
                     MessageBox.Show("文件保存成功", "系统提示");

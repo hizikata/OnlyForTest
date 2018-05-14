@@ -100,6 +100,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FrmFlowDocument.xaml.cs">
+      <DependentUpon>FrmFlowDocument.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.xaml.cs">
       <DependentUpon>FrmMain.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,7 @@
     <Compile Include="Model\MessnegerSenderModel.cs" />
     <Compile Include="Model\WelcomeModel.cs" />
     <Compile Include="ViewModel\CommandViewModel.cs" />
+    <Compile Include="ViewModel\FlowDocumentViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MessengerRegisterViewModel.cs" />
     <Compile Include="ViewModel\MessengerSenderViewModel.cs" />
@@ -130,6 +134,10 @@
     <Page Include="Dictionary\Templete.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FrmFlowDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FrmMain.xaml">
       <SubType>Designer</SubType>

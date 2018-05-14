@@ -22,10 +22,9 @@ namespace WinFom
         /// <param name="e"></param>
         void OnValueChanged(ValueChangedEventArgs e)
         {
-            if (ValueChanged != null)
-                ValueChanged(this, e);
+            ValueChanged?.Invoke(this, e);
         }
-        public void LongTimeMethod()
+        public int LongTimeMethod()
         {
             int cycle = 0;
             for (int j= 0; j < 10; j++)
@@ -41,7 +40,8 @@ namespace WinFom
                     OnValueChanged(e);
                 }
                 cycle += 20;
-            }           
+            }
+            return 1;
         }
     }
 

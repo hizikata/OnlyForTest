@@ -4,10 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
-        mc:Ignorable="d" 
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <TextBox FontSize="30" HorizontalAlignment="Left" Height="113" Margin="110,79,0,0" TextWrapping="Wrap" Text="{Binding MainWindow.Introduction}" VerticalAlignment="Top" Width="295"/>
-
-    </Grid>
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <GroupBox Header="进度条">
+            <StackPanel>
+                <ProgressBar Name="pbTest" Minimum="0" Maximum="100" HorizontalAlignment="Center"
+                             Height="30" Width="400"/>
+                <TextBlock Text="" HorizontalAlignment="Center"/>
+                <Button Name="btnTest" Click="btnTest_Click" Content="测试"
+                        HorizontalAlignment="Center" Width="100" Height="20"/>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
 </Window>

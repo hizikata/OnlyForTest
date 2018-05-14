@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WpfApp2;
 using WpfApp2.ViewModel;
@@ -15,6 +16,7 @@ namespace WinFom
 {
     public partial class Form1 : Form
     {
+        LongTimeWork work = new LongTimeWork();
         public Form1()
         {
             InitializeComponent();
@@ -78,17 +80,23 @@ namespace WinFom
         private void button1_Click(object sender, EventArgs e)
         {
             this.button1.Enabled = false;
-            LongTimeWork work = new LongTimeWork();
+            
             this.progressBar1.Maximum = 200;
             work.ValueChanged += ValueChangedMethod;
 
 
-            //使用新线程调用
-            Action handler =() =>work.LongTimeMethod();
-            handler.BeginInvoke(new AsyncCallback(this.AsyncCallback), handler);
+            //异步执行(方法1)
+            //Action handler =() =>work.LongTimeMethod();
+            //handler.BeginInvoke(new AsyncCallback(this.AsyncCallback), handler);
+
+            //异步执行(方法2)
 
 
-
+        }
+        async void ExecuteAsync()
+        {
+            int a= await Task.
+            
         }
         void AsyncCallback(IAsyncResult ar)
         {

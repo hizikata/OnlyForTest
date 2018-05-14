@@ -8,15 +8,24 @@ namespace ConsoleApp2
 {
     class Program
     {
+        public static event EventHandler TestEvent;
         static void Main(string[] args)
         {
-            ConsoleKeyInfo obj = Console.ReadKey();
-            
-            ConsoleKey key = obj.Key;
-            char keychar = obj.KeyChar;
-            Console.WriteLine(key);
-            Console.WriteLine(keychar);
-            Console.ReadLine();
+            int? a=null;
+            int b = a ?? 10;           
+            Console.WriteLine(b);
+            OnTestEvent();
+            TestEvent?.Invoke(null, null);
+            Console.WriteLine("press any key to continue...");
+            Console.ReadKey();
+        }
+        static void OnTestEvent()
+        {
+            TestEvent += TestEventMethod;
+        }
+        static void TestEventMethod(object sender,EventArgs e)
+        {
+            Console.WriteLine("TestEvent invoke");
         }
     }
     public class Test
@@ -25,9 +34,6 @@ namespace ConsoleApp2
         {
 
         }
-        public int Add(int x ,int y)
-        {
-            return x + y;
-        }
+        public int Value { get; set; }
     }
 }

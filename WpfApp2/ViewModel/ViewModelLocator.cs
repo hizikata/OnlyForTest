@@ -44,6 +44,7 @@ namespace WpfApp2.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<WelcomeViewModel>();
+            SimpleIoc.Default.Register<FlowDocumentViewModel>();
         }
 
         public MainViewModel Main
@@ -57,6 +58,14 @@ namespace WpfApp2.ViewModel
         {
             get { return ServiceLocator.Current.GetInstance<WelcomeViewModel>(); }
         }
+        public FlowDocumentViewModel FlowDocument
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<FlowDocumentViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
